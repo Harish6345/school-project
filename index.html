@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Management System</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: transparent;
+      color: white;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    header .logo img {
+      height: 50px;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+      margin-right: 1rem;
+    }
+
+    header nav ul li {
+      display: inline;
+    }
+
+    header nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .menu-icon, .close-icon {
+      display: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: linear-gradient(to bottom, rgba(0, 0, 64, 0.7), rgba(0, 0, 128, 0.856)), url('wp2468653-university-wallpapers.jpg') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .hero .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(173, 216, 230, 0.3);
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      z-index: 2;
+    }
+
+    .hero-button {
+      margin-top: 1rem;
+      padding: 0.5rem 2rem;
+      font-size: 1rem;
+      color: white;
+      border: 2px solid #ADD8E6;
+      background: transparent;
+      transition: background 0.3s ease, color 0.3s ease;
+      text-decoration: none;
+      z-index: 2;
+    }
+
+    .hero-button:hover {
+      background: #ADD8E6;
+      color: #000;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+  
+    
+    /* Media query for smaller screens */
+    @media (max-width: 768px) {
+      header nav ul {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: #003366;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      header nav ul.show {
+        display: flex;
+      }
+    
+
+      .menu-icon, .close-icon {
+        display: block;
+      }
+
+      .menu-icon {
+        position: relative;
+        left: 25%;
+      }
+
+      .close-icon {
+      position: relative;
+    
+      margin-left: 35vh;
+      margin-top: -10vh;
+    }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="./logo.png" alt="School Logo"></div>
+    <div class="menu-icon">&#9776;</div>
+    <nav>
+      <ul id="nav-menu">
+        <div class="close-icon">&times;</div>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="overlay"></div>
+      <h1>World's Biggest University</h1>
+      <p>Making websites is easier you need to learn HTML,CSS <br>Javascript and you are good to go</p>
+      <a href="about.html" class="hero-button">Know About Us</a>
+    </section>
+  </main>
+  <script>
+    // script.js
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuIcon = document.querySelector(".menu-icon");
+      const closeIcon = document.querySelector(".close-icon");
+      const navMenu = document.querySelector("#nav-menu");
+
+      menuIcon.addEventListener("click", () => {
+        navMenu.classList.add("show");
+        closeIcon.style.display = "block";
+        menuIcon.style.display = "none";
+      });
+
+      closeIcon.addEventListener("click", () => {
+        navMenu.classList.remove("show");
+        closeIcon.style.display = "none";
+        menuIcon.style.display = "block";
+      });
+    });
+  </script>
+</body>
+</html>

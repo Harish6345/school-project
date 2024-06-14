@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Blog Page</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #000000; /* Black background */
+      color: #ffffff; /* White text */
+      padding-top: 70px; /* Adjust according to your header height */
+      
+    }
+      
+    header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -40px;
+  padding: 2px 20px;
+}
+
+header .logo img {
+  height: 50px;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+header nav ul li {
+  display: inline;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+header nav ul li a:hover {
+    color: #ADD8E6;
+    text-decoration: none;
+  }
+  
+  header nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ADD8E6;
+    transition: width 0.3s;
+    margin: auto;
+  }
+  
+  header nav ul li a:hover::after {
+    width: 100%;
+  }
+
+/* Hide the menu and close icons initially */
+.menu-icon, .close-icon {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+    .blog-post {
+      background-color: #222222; /* Dark gray background for posts */
+      border: 1px solid #333333;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .blog-post .post-img {
+      height: 250px; /* Adjust image height as needed */
+      background-size: cover;
+      background-position: center;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+    .blog-post .post-content {
+      padding: 20px;
+    }
+    .blog-post .post-title {
+      font-size: 28px; /* Larger title font size */
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+    .blog-post .post-meta {
+      color: #cccccc; /* Light gray meta text */
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    .blog-post .post-meta a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .blog-post .post-meta a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .blog-post .post-img {
+        height: 200px;
+      }
+      
+  header nav ul {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #003366;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  header nav ul.show {
+    display: flex;
+  }
+
+  .menu-icon, .close-icon {
+    display: block;
+  }
+
+  .close-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .menu-icon{
+    position: relative;
+    left: 25%;
+  }
+  .blog-post{
+   position: relative;
+  }
+}
+    
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="logo"><img src="./logo.png" alt=""></div>
+    <div class="menu-icon">&#9776;</div>
+   
+    <nav>
+      <ul id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contactus.html">Contact Us</a></li> <div class="close-icon">&times;</div>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Content -->
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="col-md-8">
+        <!-- Blog Post 1 -->
+        <div class="blog-post">
+          <div class="post-img" style="background-image: url('./basketball.png');"></div>
+          <div class="post-content">
+            <h2 class="post-title"><a href="#">At Football Play Ground</a></h2>
+            <p class="post-meta">Posted by <a href="#">Admin</a> on January 1, 2024</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel mauris quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            <a href="#" class="btn btn-primary">Read More</a>
+          </div>
+        </div>
+
+        <!-- Blog Post 2 -->
+        <div class="blog-post">
+          <div class="post-img" style="background-image: url('./london.png');"></div>
+          <div class="post-content">
+            <h2 class="post-title"><a href="#">At London's veiw</a></h2>
+            <p class="post-meta">Posted by <a href="#">Admin</a> on January 2, 2024</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel mauris quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            <a href="#" class="btn btn-primary">Read More</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-md-4">
+        <div class="card mb-4 bg-dark">
+          <h5 class="card-header">Search</h5>
+          <div class="card-body">
+            <form>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search...">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-primary" type="button">Go!</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+
+     
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script >
+    // script.js
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuIcon = document.querySelector(".menu-icon");
+  const closeIcon = document.querySelector(".close-icon");
+  const navMenu = document.querySelector("#nav-menu");
+
+  menuIcon.addEventListener("click", () => {
+    navMenu.classList.add("show");
+  });
+
+  closeIcon.addEventListener("click", () => {
+    navMenu.classList.remove("show");
+  });
+});
+
+  </script>
+</body>
+</html>

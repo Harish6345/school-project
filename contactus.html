@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - School Management System</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="contactus.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #000000; /* Black background */
+      color: #ffffff; /* White text */
+      padding-top: 70px; /* Adjust according to your header height */
+      
+    }
+      
+    header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  padding: 10px 20px;
+}
+
+header .logo img {
+  height: 50px;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+header nav ul li {
+  display: inline;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+.menu-icon, .close-icon {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+    @media (max-width: 768px) {
+      
+  header nav ul {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #003366;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  header nav ul.show {
+    display: flex;
+  }
+
+  .menu-icon, .close-icon {
+    display: block;
+  }
+
+  .close-icon {
+    position: absolute;
+    top: 20px;
+    right: 60px;
+  }
+  .menu-icon{
+    margin-left: 50%;
+  }
+
+}
+    
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="./eduford_img/logo.png" alt=""></div>
+    <div class="menu-icon">&#9776;</div>
+   
+    <nav>
+      <ul id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contactus.html">Contact Us</a></li> <div class="close-icon">&times;</div>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+    <div class="contact-form">
+      <h2>Contact Us</h2>
+      <form id="contactForm" action="#">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-submit">Submit</button>
+      </form>
+    </div>
+  </main>
+  <footer>
+    <h4>@ Meduru htg</h4>
+  </footer>
+  <script>
+    // Initialize EmailJS with your User ID
+emailjs.init('your_user_id');
+
+// Function to send email using EmailJS
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submit
+
+  // Fetch form data
+  const formData = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    message: document.getElementById('message').value
+  };
+
+  // Send email using EmailJS
+  emailjs.send('your_service_id', 'your_template_id', formData)
+    .then(function(response) {
+      console.log('Email sent successfully:', response);
+      alert('Your message has been sent!');
+      // Optionally clear the form fields after successful submission
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('message').value = '';
+    }, function(error) {
+      console.error('Email sending failed:', error);
+      alert('Oops! Something went wrong. Please try again later.');
+    });
+});
+
+  </script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", () => {
+    const menuIcon = document.querySelector(".menu-icon");
+    const closeIcon = document.querySelector(".close-icon");
+    const navMenu = document.querySelector("#nav-menu");
+  
+    menuIcon.addEventListener("click", () => {
+      navMenu.classList.add("show");
+    });
+  
+    closeIcon.addEventListener("click", () => {
+      navMenu.classList.remove("show");
+    });
+  });</script>
+ 
+</body>
+</html>
